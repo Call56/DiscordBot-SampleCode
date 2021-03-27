@@ -1,0 +1,12 @@
+# DiscordBotを作るにはdiscord.pyと言うライブラリをインポートする必要があります。
+# インポートするにはコードの一番最初に「import discord」と書く必要があります。
+import discord
+# さらにこの後「client = discord.Client()」と記述する必要があります。
+client = discord.Client()
+# これはDiscordに"接続"を行うと言うことです。
+# 最後にDiscordのBotにログインするためにTokenの設定が必要です。
+# 設定は簡単で、最後に「client.run("")」と書けばいいです。
+# ""の中にはTokenをペーストしてください。
+# Tokenはhttps://discord.com/developers/で取得する必要があります。
+client.run("")
+# これで起動するとBotがオンラインになります。
