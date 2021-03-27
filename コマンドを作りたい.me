@@ -1,0 +1,34 @@
+# 必要最低限のプログラムにif文を付け足すことでコマンドができます。
+import discord
+
+client = discord.Client()
+
+# ここにまず、イベントを書かないといけません。
+# 「@client.event」その下に「async def on_message(message):」と記述しましょう。
+# これはサーバーでメッセージが送信された場合に動作するイベントです。
+@client.event
+async def on_message(message):
+    # ここにif文を書きましょう。
+    # 今回は「if message.content == "$test":」と書きましょう。
+    if message.content == "$test":
+        # そしてここに処理内容を書きます。
+        # 今回は「await message.channel.send("test")」と書きましょう。
+        await message.channel.send("test")
+        # これで$testと入力したらtestと帰ってくるBotが完成しました。
+        # ちなみにon_message(message)のon_message(この部分)を変えると
+        # await この部分.channel.send("test")や
+        # if この部分.content == "$test":が変わります。
+        # on_message(この部分)はメッセージ自体を示してると言うことです。
+    # 複数のコマンドを作りたい場合インデントを戻してelifと記述しましょう
+    elif message.content == "$test2":
+        # 処理内容を書きます。
+        await message.channel.send("test")
+        # elifは「または」と言う意味になります。
+    # 例外を作りたい場合はインデントを戻してelse:と記述しましょう。
+    # else:では条件を付けることはできません。
+    else:
+        # ここに上記のどちらにも当てはまらなかった場合の処理を書きましょう。
+        # returnを書くことで返り値無し(処理を無し)にすることができます。
+        return
+        
+client.run("")
